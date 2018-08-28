@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.myButton)
 
         button.setOnClickListener {
-            val intent = Intent(this, SecondActivity::class.java)
+            val intent = Intent(Constants.CAM_INTEND_ID)
             startActivity(intent)
         }
     }
