@@ -5,15 +5,47 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        showToastMessage("onCreate")
+
         setContentView(R.layout.activity_main)
 
         setupTexts()
         setupButtonClickListener()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        showToastMessage("onStart")
+    }
+
+    override fun onPause() {
+        showToastMessage("onPause")
+        super.onPause()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        showToastMessage("onRestart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        showToastMessage("onResume")
+    }
+
+    override fun onStop() {
+        showToastMessage("onStop")
+        super.onStop()
+    }
+
+    private fun showToastMessage(text: String) {
+        Toast.makeText(this, "MainActivity: $text", Toast.LENGTH_LONG).show()
     }
 
     private fun setupButtonClickListener() {
