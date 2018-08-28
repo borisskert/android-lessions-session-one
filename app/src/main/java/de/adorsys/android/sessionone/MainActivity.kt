@@ -4,8 +4,10 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_second.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -52,7 +54,12 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.myButton)
 
         button.setOnClickListener {
-            val intent = Intent(Constants.CAM_INTEND_ID)
+            val editText = findViewById<EditText>(R.id.myEditText)
+            val myText = editText.text.toString()
+
+            val intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra(Constants.MY_TEXT_FROM_TEXT_VIEW, myText)
+
             startActivity(intent)
         }
     }
